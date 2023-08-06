@@ -15,11 +15,13 @@ Once their profile is created, they can log in, even after exiting the program.
 After logging in, I plan to give the user an array of options, 
 such as viewing (fake) checking accounts and changing personal information like their password.
 
-###		*** NOTE ***
+### ! NOTE !
 
-	Original Project 1 repository become corrupted as 
-	I was experienting and trying to self-teach Git. 
-	All code is saved, 
-	but the repo will not work as intended (to my knowledge).
+	Original Project 1 repository became corrupted while 
+	I was experienting with and trying to self-teach Git. 
+	All code and commit history is saved, 
+	but the repository will not work as intended (to my knowledge).
+	Original repository url is: 
+	https://github.com/TaylorBisset/CS131-BankingLogin-HonorsProject1
 
 ## Project 2: File Manipulation
