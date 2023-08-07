@@ -8,12 +8,11 @@ using namespace std;
 /* - - - - - Function prototypes - - - - - */
 
 void displayStartMenu();
-
 void   login();
-bool   validLogin;
 void   displayProfileMenu();
 void   createProfile();
-bool usernameExists(string username);
+bool   validLogin;
+bool   usernameExists(string username);
 string getValidUsername();
 string getValidPassword();
 string username = "username";
