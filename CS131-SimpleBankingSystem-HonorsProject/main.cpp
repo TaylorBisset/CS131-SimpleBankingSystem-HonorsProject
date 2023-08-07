@@ -118,9 +118,16 @@ void login()
         char tryAgain;
         cin >> tryAgain;
         cin.ignore();
-        if (tryAgain == 'y')
+        int count = 0;
+        if (tryAgain == 'y' && count < 3)
         {
             login();
+            count++;
+        }
+        else if (count >= 3)
+        {
+            cout << "Too many attempts.\n";
+            displayStartMenu();
         }
         else
         {
