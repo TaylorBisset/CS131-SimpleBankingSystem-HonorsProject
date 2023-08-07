@@ -217,6 +217,11 @@ string getValidUsername()
         cout << "\n\tEnter your username here: ";
         getline(cin, username);                     // user inputs their desired username 
 
+        if (usernameExists(username))
+        {
+            cout << "Username \"" << username << "\" already exists.\nPlease choose a different username.\n";
+        }
+
         if (username.size() > 5)
         {
             isUsernameValid = true;                 // set true, until proven otherwise 
