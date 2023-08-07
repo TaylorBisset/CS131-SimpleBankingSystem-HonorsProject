@@ -5,18 +5,21 @@
 
 using namespace std;
 
-// Function prototypes
+/* - - - - - Function prototypes - - - - - */
+
 void displayStartMenu();
 
-void login();
-bool validLogin;
-void displayProfileMenu();
+void   login();
+bool   validLogin;
+void   displayProfileMenu();
+void   createProfile();
 
-void createProfile();
 string getValidUsername();
 string getValidPassword();
 string username = "username";
 string password = "password";
+
+/* - - - - - main - - - - - */
 
 int main()
 {
