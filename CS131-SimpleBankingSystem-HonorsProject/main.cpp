@@ -69,6 +69,16 @@ void login()
     cin >> loginPassword;
 
     ifstream profileFile("profiles/" + loginUsername + ".txt");
+    if (profileFile.is_open())
+    {
+        string storedUsername;
+        string storedPassword;
+
+        profileFile.ignore(10);                 // ignore "Username: "
+        getline(profileFile, storedUsername);
+        profileFile.ignore(10);                 // ignore "Password: "
+        getline(profileFile, storedPassword);
+    }
 
     if (loginUsername == username)
     {
