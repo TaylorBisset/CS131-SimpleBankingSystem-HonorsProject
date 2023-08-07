@@ -68,6 +68,8 @@ void login()
     cout << "Password: ";
     cin >> loginPassword;
 
+    ifstream profileFile("profiles/" + loginUsername + ".txt");
+
     if (loginUsername == username)
     {
         if (loginPassword == password)
