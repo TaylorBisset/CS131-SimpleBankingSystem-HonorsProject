@@ -194,6 +194,13 @@ void createProfile()
     return;
 }
 
+// Checks for existing profiles
+bool usernameExists(string username)
+{
+    ifstream profileFile("profiles/" + username + ".txt");
+    return profileFile.good();
+}
+
 // Get valid username function
 string getValidUsername()
 {
