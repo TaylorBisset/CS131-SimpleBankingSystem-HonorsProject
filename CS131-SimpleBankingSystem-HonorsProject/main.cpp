@@ -160,6 +160,10 @@ void createProfile()
         profileFile.close();
         cout << "Congratulations!\nProfile created successfully!\n";
     }
+    else
+    {
+        cout << "Error creating the profile file.\n";
+    }
 
     return;
 }
