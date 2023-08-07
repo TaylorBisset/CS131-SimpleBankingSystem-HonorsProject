@@ -150,6 +150,9 @@ void createProfile()
     cout << "\nLet's create a new profile for you!\n";
     username = getValidUsername();
     password = getValidPassword();
+
+    ofstream profileFile("profiles/" + username + ".txt");
+
     return;
 }
 
