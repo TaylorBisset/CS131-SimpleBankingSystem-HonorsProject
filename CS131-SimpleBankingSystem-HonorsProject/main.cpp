@@ -73,6 +73,13 @@ void login()
     ifstream profileFile("Profiles\\" + loginUsername + ".txt");
     if (profileFile.is_open())
     {
+        cout << "Error opening file for user \"" << loginUsername << "\".\n";
+        displayStartMenu();
+        return;
+    }
+    
+    if (profileFile.is_open())
+    {
         string storedUsername;
         string storedPassword;
 
