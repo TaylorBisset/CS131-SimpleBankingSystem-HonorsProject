@@ -78,16 +78,13 @@ void login()
         return;
     }
     
-    if (profileFile.is_open())
-    {
-        string storedUsername;
-        string storedPassword;
+    string storedUsername;
+    string storedPassword;
 
-        profileFile.ignore(10);                 // ignore "Username: "
-        getline(profileFile, storedUsername);
-        profileFile.ignore(10);                 // ignore "Password: "
-        getline(profileFile, storedPassword);
-    }
+    profileFile.ignore(10);                 // ignore "Username: "
+    getline(profileFile, storedUsername);
+    profileFile.ignore(10);                 // ignore "Password: "
+    getline(profileFile, storedPassword);
 
     if (loginUsername == username)
     {
