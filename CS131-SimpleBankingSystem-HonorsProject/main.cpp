@@ -7,7 +7,7 @@ using namespace std;
 
 /* - - - - - Function prototypes - - - - - */
 
-void displayStartMenu();
+void   displayStartMenu();
 void   login();
 void   displayProfileMenu();
 void   createProfile();
@@ -70,7 +70,7 @@ void login()
     cout << "Password: ";
     cin >> loginPassword;
 
-    ifstream profileFile("profiles/" + loginUsername + ".txt");
+    ifstream profileFile("Profiles\\" + loginUsername + ".txt");
     if (profileFile.is_open())
     {
         string storedUsername;
@@ -179,7 +179,7 @@ void createProfile()
     username = getValidUsername();
     password = getValidPassword();
 
-    ofstream profileFile("profiles/" + username + ".txt");
+    ofstream profileFile("Profiles\\" + username + ".txt");
     if (profileFile.is_open())
     {
         profileFile << "Username: " << username << endl;
@@ -199,7 +199,7 @@ void createProfile()
 // Checks for existing profiles
 bool usernameExists(string username)
 {
-    ifstream profileFile("profiles/" + username + ".txt");
+    ifstream profileFile("Profiles\\" + username + ".txt");
     return profileFile.good();
 }
 
