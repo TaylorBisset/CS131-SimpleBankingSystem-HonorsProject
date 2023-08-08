@@ -187,6 +187,11 @@ void createProfile()
     password = getValidPassword();
 
     ofstream profileFile("Profiles\\" + username + ".txt");
+    if (!profileFile.is_open())
+    {
+        cout << "Error creating profile for user \"" << username << "\".\n";
+        return;
+    }
     if (profileFile.is_open())
     {
         profileFile << "Username: " << username << endl;
