@@ -78,7 +78,7 @@ void login()
     cin >> loginPassword;
 
     ifstream profileFile("profiles\\" + loginUsername + ".txt");
-    if (profileFile.is_open())
+    if (!profileFile.is_open())
     {
         cout << "Error opening file for user \"" << loginUsername << "\".\n";
         displayStartMenu();
