@@ -93,9 +93,9 @@ void login()
     profileFile.ignore(10);                 // ignore "Password: "
     getline(profileFile, storedPassword);
 
-    if (loginUsername == username)
+    if (loginUsername == storedUsername)
     {
-        if (loginPassword == password)
+        if (loginPassword == storedPassword)
         {
             validLogin = true;
             displayProfileMenu();
