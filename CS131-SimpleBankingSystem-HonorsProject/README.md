@@ -22,14 +22,14 @@ I was experimenting with and trying to self-teach Git.
 All code and commit history are saved, 
 but the repository will not work as intended (to my knowledge).
 The original repository URL is: 
+
 https://github.com/TaylorBisset/CS131-BankingLogin-HonorsProject1
 
 ## Project 2: File Manipulation
 
 For my second iteration of this project, I decided to use <filesystem> and <fstream> to utilize files to store data (locally). 
 This is my first attempt at any data storage. I created a new directory in the project called "profiles" 
-that holds .txt files associated with user profiles. For example, taylor.txt's content holds `username: taylor` and 
-the `password: qwer1324!@#$` and will be where banking account information will be stored.
+that holds .txt files associated with user profiles. For example, taylor.txt's content holds `username: taylor` and `password: qwer1324!@#$` and will be where banking account information will be stored.
 
 In the final iteration of this project (for CS131), I plan to use vectors, arrays, and pointers for data management.
 The user can create checking and savings accounts within their profile files. 

@@ -13,8 +13,10 @@ void   displayStartMenu();
 void   login();
 void   displayProfileMenu();
 void   createProfile();
+
 bool   validLogin;
 bool   usernameExists(string username);
+
 string getValidUsername();
 string getValidPassword();
 string username = "username";
