@@ -2,8 +2,10 @@
 #include <string>
 #include <cctype>
 #include <fstream>
+#include <filesystem>
 
 using namespace std;
+namespace fs = std::filesystem;
 
 /* - - - - - Function prototypes - - - - - */
 
