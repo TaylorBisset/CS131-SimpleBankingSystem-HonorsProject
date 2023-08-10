@@ -24,6 +24,11 @@ string password = "password";
 
 int main()
 {
+    if (!fs::exists("profiles"))
+    {
+        fs::create_directory("profiles");
+        cout << "Created \"profiles\" directory.\n";
+    }
     cout << "Welcome to Bisset Bank!\n\n";
     displayStartMenu();
 }
@@ -72,7 +77,7 @@ void login()
     cout << "Password: ";
     cin >> loginPassword;
 
-    ifstream profileFile("Profiles\\" + loginUsername + ".txt");
+    ifstream profileFile("profiles\\" + loginUsername + ".txt");
     if (profileFile.is_open())
     {
         cout << "Error opening file for user \"" << loginUsername << "\".\n";
@@ -185,7 +190,7 @@ void createProfile()
     username = getValidUsername();
     password = getValidPassword();
 
-    ofstream profileFile("Profiles\\" + username + ".txt");
+    ofstream profileFile("profiles\\" + username + ".txt");
     if (!profileFile.is_open())
     {
         cout << "Error creating profile for user \"" << username << "\".\n";
@@ -210,7 +215,7 @@ void createProfile()
 // Checks for existing profiles
 bool usernameExists(string username)
 {
-    ifstream profileFile("Profiles\\" + username + ".txt");
+    ifstream profileFile("profiles\\" + username + ".txt");
     return profileFile.good();
 }
 
