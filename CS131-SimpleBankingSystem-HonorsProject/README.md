@@ -17,19 +17,20 @@ such as viewing (fake) checking accounts and changing personal information like 
 
 ### ! NOTE !
 
-	Original Project 1 repository became corrupted while 
-	I was experienting with and trying to self-teach Git. 
-	All code and commit history is saved, 
+	The original Project 1 repository became corrupted while 
+	I was experimenting with and trying to self-teach Git. 
+	All code and commit history are saved, 
 	but the repository will not work as intended (to my knowledge).
-	Original repository url is: 
+	The original repository URL is: 
 	https://github.com/TaylorBisset/CS131-BankingLogin-HonorsProject1
 
 ## Project 2: File Manipulation
 
 For my second iteration of this project, I decided to use <filesystem> and <fstream> to utilize files to store data (locally). 
-This is my first attempt at any sort of data storage. I created a new directory in the project called <u>"profiles"<u> 
-that holds .txt files associated with user profiles. For example: taylor.txt's content holds the username: taylor and 
-the password: qwer1324!@#$ and will be where banking account information will be stored.
+This is my first attempt at any data storage. I created a new directory in the project called <u>"profiles"<u> 
+that holds .txt files associated with user profiles. For example, taylor.txt's content holds `username: taylor` and 
+the `password: qwer1324!@#$` and will be where banking account information will be stored.
 
-In the final iteration of this project (for CS131 that is), I plamn to use vectors, arrays, and pointers for data management.
-The user will be able to create checking and savings accounts within thier profile files. 
+In the final iteration of this project (for CS131), I plan to use vectors, arrays, and pointers for data management.
+The user can create checking and savings accounts within their profile files. 
+
