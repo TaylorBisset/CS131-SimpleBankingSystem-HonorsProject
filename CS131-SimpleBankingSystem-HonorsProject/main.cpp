@@ -185,7 +185,7 @@ void displayProfileMenu()
     }
 }
 
-// Create Profile function
+// Create Profile function          need to check if username already exists using `bool usernameExists(string username)`
 void createProfile()
 {
     cout << "\nLet's create a new profile for you!\n";
