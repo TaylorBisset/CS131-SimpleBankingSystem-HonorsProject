@@ -339,3 +339,13 @@ string getValidPassword()
     cout << "\n- - - - - - - - - - - - - - - - - - - -\n";
     return password;
 }
+
+/*
+for file pathing to be OS independent, I should consider the following snippet
+
+`
+fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
+std::ifstream profileFile(profileFilePath);
+`
+
+*/
