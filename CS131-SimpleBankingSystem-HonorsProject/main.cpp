@@ -159,7 +159,7 @@ void displayProfileMenu()
         int profileMenu = 0;
         while (profileMenu != 3)
         {
-            cout << "\nWelcome to your Bisset Bank Account, " << username << endl;
+            cout << "\nWelcome to your Bisset Bank Account.\n";
             cout << "\nWhat would you like to do?\n";
             cout << "1 = View Accounts\n2 = Edit Profile\n3 = Logout\n";
             cin >> profileMenu;
