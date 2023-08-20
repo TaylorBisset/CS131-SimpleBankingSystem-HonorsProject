@@ -239,6 +239,23 @@ void viewAccounts()
     }*/
 }
 
+// add Account
+void addAccount(vector<Account>& userAccounts)
+{
+    // Randomize account number whebn creating new account
+    int ascii = 0;
+    for (char c : username)
+    {
+        ascii += static_cast<int>(c);
+    }
+    srand(ascii);
+    int newAccountNumber = (10000000 + (rand() % 90000000));
+    double initialBalance = 500.00;
+
+    userAccounts.push_back(Account(newAccountNumber, initialBalance));
+    cout << "Account " << newAccountNumber << " added successfully!\n";
+}
+
 // Edit Profile function
 /*void editProfile()
 {
