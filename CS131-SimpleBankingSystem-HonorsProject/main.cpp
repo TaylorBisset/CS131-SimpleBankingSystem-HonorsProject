@@ -12,7 +12,7 @@ namespace fs = std::filesystem;
 void displayStartMenu();
 void login();
 void displayProfileMenu();
-void editProfile();
+//void editProfile();
 void createProfile();
 
 bool validLogin;
@@ -186,7 +186,7 @@ void displayProfileMenu()
                 //viewProfileAccounts();
                 break;
             case 2:
-                editProfile();
+                //editProfile();
                 break;
             case 3:
                 cout << "\nLogging out...\n";
@@ -261,6 +261,9 @@ void createProfile()
     {
         profileFile << "Username: " << username << endl;
         profileFile << "Password: " << password << endl;
+        profileFile << "Real Name: " << username << endl;
+        profileFile << "Age: " << 30 << endl;
+        profileFile << "Address: " << "123 Main Street" << endl;
 
         profileFile.close();
         cout << "Congratulations!\nProfile created successfully!\n";

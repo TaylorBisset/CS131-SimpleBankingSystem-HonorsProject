@@ -1,2 +1,5 @@
 Username: defaultUsername
 Password: defaultPassword1234!@#$
+Real Name: defaultUsername
+Age: 30
+Address: 123 Main Street
