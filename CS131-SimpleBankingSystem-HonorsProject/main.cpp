@@ -200,6 +200,12 @@ void displayProfileMenu()
     }
 }
 
+// View Accounts
+void viewAccounts()
+{
+
+}
+
 // Edit Profile function
 /*void editProfile()
 {
