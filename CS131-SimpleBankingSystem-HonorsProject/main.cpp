@@ -314,6 +314,9 @@ void createProfile()
         double initialBalance = 500.00;
         profileFile << "Account: " << newAccountNumber << " $" << initialBalance << endl;
 
+        vector<Account> userAccounts;
+        userAccounts.push_back(Account(newAccountNumber, initialBalance));
+
         profileFile.close();
         cout << "Congratulations!\nProfile created successfully!\n";
     }
