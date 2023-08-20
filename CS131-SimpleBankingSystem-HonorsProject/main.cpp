@@ -203,7 +203,15 @@ void displayProfileMenu()
 // View Accounts
 void viewAccounts()
 {
-
+    //// Randomize account number
+    //int ascii = 0;
+    //for (char c : username)
+    //{
+    //    ascii += static_cast<int>(c);
+    //}
+    //srand(ascii);
+    //int newAccountNumber = (10000000 + (rand() % 90000000));
+    //double initialBalance = 500.00;
 }
 
 // Edit Profile function
