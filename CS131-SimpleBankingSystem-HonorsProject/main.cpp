@@ -88,9 +88,9 @@ void login()
     cout << "\nFill in your login information below\n";
 
     cout << "Username: ";
-    cin >> loginUsername;
+    getline(cin, loginUsername);
     cout << "Password: ";
-    cin >> loginPassword;
+    getline(cin, loginPassword);
 
     ifstream profileFile("profiles\\" + loginUsername + ".txt");
     if (!profileFile.is_open())
