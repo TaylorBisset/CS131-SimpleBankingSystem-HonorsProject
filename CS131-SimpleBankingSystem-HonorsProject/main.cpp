@@ -222,7 +222,7 @@ void displayProfileMenu()
 // View Accounts
 void viewAccounts()
 {
-    //// Randomize account number
+    //// Randomize account number whebn creating new account
     //int ascii = 0;
     //for (char c : username)
     //{
@@ -231,6 +231,11 @@ void viewAccounts()
     //srand(ascii);
     //int newAccountNumber = (10000000 + (rand() % 90000000));
     //double initialBalance = 500.00;
+    /*for (int i : userAccounts[])
+    {
+        cout << "Account number: " << userAccounts[i].accountNumber << endl;
+        cout << "\tAccount value: $" << userAccounts[i].accoubtValue << endl;
+    }*/
 }
 
 // Edit Profile function
