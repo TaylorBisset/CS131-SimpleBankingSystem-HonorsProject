@@ -7,6 +7,25 @@
 using namespace std;
 namespace fs = std::filesystem;
 
+/* - - - - - Objects - - - - - */
+class Account 
+{
+private:
+    int accountNumber;
+    double accountValue;
+
+public:
+    Account(int number, double value) : accountNumber(number), accountValue(value) {}
+    int getAccountNumber() const
+    {
+        return accountNumber;
+    }
+    double getAccountValue() const
+    {
+        return accountValue;
+    }
+};
+
 /* - - - - - Function prototypes - - - - - */
 
 void displayStartMenu();
