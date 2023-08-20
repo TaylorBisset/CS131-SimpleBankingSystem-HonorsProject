@@ -55,7 +55,9 @@ void displayStartMenu()
     while (startMenu != 3)
     {
         cout << "\nWhat would you like to do?\n";
-        cout << "1 = Login\n2 = Create Profile\n3 = Exit Program\n";
+        cout << "1 = Login\n";
+        cout << "2 = Create Profile\n";
+        cout << "3 = Exit Program\n";
         cin >> startMenu;
         cin.ignore();
 
@@ -172,17 +174,19 @@ void displayProfileMenu()
         {
             cout << "\nWelcome to your Bisset Bank Account.\n";
             cout << "\nWhat would you like to do?\n";
-            cout << "1 = View Accounts\n2 = Edit Profile\n3 = Logout\n";
+            cout << "1 = View Accounts\n";
+            cout << "2 = Edit Profile\n";
+            cout << "3 = Logout\n";
             cin >> profileMenu;
             cin.ignore();
 
             switch (profileMenu)
             {
             case 1:
-                //viewProfileAccounts()
+                //viewProfileAccounts();
                 break;
             case 2:
-                //editProfile()
+                editProfile();
                 break;
             case 3:
                 cout << "\nLogging out...\n";
@@ -197,10 +201,48 @@ void displayProfileMenu()
 }
 
 // Edit Profile function
-void editProfile()
+/*void editProfile()
 {
+    while (validLogin)
+    {
+        int editChoice = 0;
+        while (editChoice != 5)
+        {
+            cout << "\nEditing your profile.\n";
+            cout << "\nWhat would you like to do?\n";
+            cout << "1 = Edit Password\n";
+            cout << "2 = Edit Name\n";
+            cout << "3 = Edit Age\n";
+            cout << "4 = Edit Address\n";
+            cout << "5 = Return to Profile Menu\n";
+            cin >> editChoice;
+            cin.ignore();
 
-}
+            switch (editChoice)
+            {
+            case 1:
+                updatePassword();
+                break;
+            case 2:
+                updateName();
+                break;
+            case 3:
+                updateAge();
+                break;
+            case 4:
+                updateAddress();
+                break;
+            case 5:
+                cout << "\nReturning to Profil Menu\n";
+                displayProfileMenu();
+                break;
+            default:
+                cout << "\nInvalid choice. Please try again.\n";
+                break;
+            }
+        }
+    }
+}*/
 
 // Create Profile function          need to check if username already exists using `bool usernameExists(string username)`
 void createProfile()
