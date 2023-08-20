@@ -320,17 +320,7 @@ void createProfile()
         profileFile << "Age: " << 30 << endl;
         profileFile << "Address: " << "123 Main Street" << endl;
 
-        int ascii = 0;
-        for (char c : username)
-        {
-            ascii += static_cast<int>(c);
-        }
-        srand(ascii);
-        int newAccountNumber = (10000000 + (rand() % 90000000));
-        double initialBalance = 500.00;
-        profileFile << "Account: " << newAccountNumber << " $" << initialBalance << endl;
-
-        userAccounts.push_back(Account(newAccountNumber, initialBalance));
+        addAccount(userAccounts);
 
         profileFile.close();
         cout << "Congratulations!\nProfile created successfully!\n";
