@@ -43,6 +43,8 @@ string getValidPassword();
 string username = "username";
 string password = "password";
 
+vector<Account>& userAccounts;
+
 /* - - - - - main - - - - - */
 
 int main()
@@ -52,6 +54,9 @@ int main()
         fs::create_directory("profiles");
         cout << "Created \"profiles\" directory.\n";
     }
+
+    vector<Account> userAccounts;
+
     cout << "Welcome to Bisset Bank!\n\n";
     displayStartMenu();
 
@@ -203,7 +208,7 @@ void displayProfileMenu()
             switch (profileMenu)
             {
             case 1:
-                //viewProfileAccounts();
+                viewAccounts();
                 break;
             case 2:
                 //editProfile();
@@ -221,22 +226,14 @@ void displayProfileMenu()
 }
 
 // View Accounts
-void viewAccounts()
+void viewAccounts(vector<Account>& userAccounts)
 {
-    //// Randomize account number whebn creating new account
-    //int ascii = 0;
-    //for (char c : username)
-    //{
-    //    ascii += static_cast<int>(c);
-    //}
-    //srand(ascii);
-    //int newAccountNumber = (10000000 + (rand() % 90000000));
-    //double initialBalance = 500.00;
-    /*for (int i : userAccounts[])
+    cout << "\nYour Accounts:\n";
+    for (const Account& account : userAccounts)
     {
-        cout << "Account number: " << userAccounts[i].accountNumber << endl;
-        cout << "\tAccount value: $" << userAccounts[i].accoubtValue << endl;
-    }*/
+        cout << "Account number: " << account.getAccountNumber() << endl;
+        cout << "\tAccount value: $" << account.getAccountValue() << endl;
+    }
 }
 
 // add Account
