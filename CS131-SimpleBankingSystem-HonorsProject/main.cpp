@@ -9,13 +9,14 @@ namespace fs = std::filesystem;
 
 /* - - - - - Function prototypes - - - - - */
 
-void   displayStartMenu();
-void   login();
-void   displayProfileMenu();
-void   createProfile();
+void displayStartMenu();
+void login();
+void displayProfileMenu();
+void editProfile();
+void createProfile();
 
-bool   validLogin;
-bool   usernameExists(string username);
+bool validLogin;
+bool usernameExists(string username);
 
 string getValidUsername();
 string getValidPassword();
@@ -193,6 +194,12 @@ void displayProfileMenu()
             }
         }
     }
+}
+
+// Edit Profile function
+void editProfile()
+{
+
 }
 
 // Create Profile function          need to check if username already exists using `bool usernameExists(string username)`
