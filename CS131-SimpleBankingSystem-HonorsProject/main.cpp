@@ -30,9 +30,12 @@ public:
 
 /* - - - - - Function prototypes - - - - - */
 
+int main();
+
 void displayStartMenu();
 void login();
 void displayProfileMenu();
+void viewAccounts(vector<Account>& userAccounts);
 //void editProfile();
 void createProfile();
 
@@ -44,7 +47,7 @@ string getValidPassword();
 string username = "username";
 string password = "password";
 
-vector<Account>& userAccounts;
+vector<Account> userAccounts;
 
 /* - - - - - main - - - - - */
 
@@ -55,8 +58,6 @@ int main()
         fs::create_directory("profiles");
         cout << "Created \"profiles\" directory.\n";
     }
-
-    vector<Account> userAccounts;
 
     cout << "Welcome to Bisset Bank!\n\n";
     displayStartMenu();
@@ -209,7 +210,7 @@ void displayProfileMenu()
             switch (profileMenu)
             {
             case 1:
-                viewAccounts();
+                viewAccounts(userAccounts);
                 break;
             case 2:
                 //editProfile();
@@ -329,7 +330,6 @@ void createProfile()
         double initialBalance = 500.00;
         profileFile << "Account: " << newAccountNumber << " $" << initialBalance << endl;
 
-        vector<Account> userAccounts;
         userAccounts.push_back(Account(newAccountNumber, initialBalance));
 
         profileFile.close();
