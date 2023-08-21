@@ -33,6 +33,7 @@ public:
         accountValue += amount;
     }
 };
+
 Account* findAccountByNumber(vector<Account>& accounts, int accountNumber) 
 {
     for (Account& account : accounts) 
@@ -55,7 +56,6 @@ void displayProfileMenu();
 void viewProfileDetails();
 void transferFunds(vector<Account>& userAccounts);
 void addAccount(vector<Account>& userAccounts);
-//void viewAccounts();
 void editProfile();
 void updatePassword();
 void updateName();
@@ -311,7 +311,7 @@ void viewProfileDetails()
 //}
 
 // Transfer Funds
-void transferFunds(vector<Account>& userAccounts)
+void transferFunds(vector<Account>& userAccounts) 
 {
     cout << "\nTransfer Funds\n";
 
@@ -325,48 +325,35 @@ void transferFunds(vector<Account>& userAccounts)
     cout << "\tEnter amount to transfer: ";
     cin >> amount;
 
-    bool sourceFound = false;
-    bool targetFound = false;
-
-    Account* sourceAccount = nullptr;
-    Account* targetAccount = nullptr;
-
-    for (Account& account : userAccounts)
+    if (amount <= 0) 
     {
-        if (account.getAccountNumber() == sourceAccountNumber)
-        {
-            if (account.getAccountValue() >= amount)
-            {
-                sourceAccount = &account;
-                sourceFound = true;
-            }
-            else
-            {
-                cout << "\nInsufficient funds in the source account.\n";
-                return;
-            }
-        }
-        if (account.getAccountNumber() == targetAccountNumber)
-        {
-            targetAccount = &account;
-            targetFound = true;
-        }
+        cout << "\nInvalid amount. Please enter a positive amount.\n";
+        return;
     }
 
-    if (!sourceFound)
+    Account* sourceAccount = findAccountByNumber(userAccounts, sourceAccountNumber);
+    Account* targetAccount = findAccountByNumber(userAccounts, targetAccountNumber);
+
+    if (!sourceAccount) 
     {
         cout << "\nSource account not found.\n";
+        return;
     }
-    if (!targetFound)
+    if (!targetAccount) 
     {
         cout << "\nTarget account not found.\n";
+        return;
     }
-    if (sourceFound && targetFound)
+    if (sourceAccount->getAccountValue() < amount) 
     {
-        sourceAccount->updateAccountValue(-amount);
-        targetAccount->updateAccountValue(+amount);
-        cout << "\nFunds transferred successfully!\n";
+        cout << "\nInsufficient funds in the source account.\n";
+        return;
     }
+
+    sourceAccount->updateAccountValue(-amount);
+    targetAccount->updateAccountValue(amount);
+
+    cout << "\nFunds transferred successfully!\n";
 }
 
 // Add new banking Account
