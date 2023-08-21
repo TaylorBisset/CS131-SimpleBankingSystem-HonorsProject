@@ -307,11 +307,11 @@ void transferFunds(vector<Account>& userAccounts)
     int sourceAccountNumber, targetAccountNumber;
     double amount;
 
-    cout << "Enter source account number: ";
+    cout << "\tEnter source account number: ";
     cin >> sourceAccountNumber;
-    cout << "Enter target account number: ";
+    cout << "\tEnter target account number: ";
     cin >> targetAccountNumber;
-    cout << "Enter amount to transfer: ";
+    cout << "\tEnter amount to transfer: ";
     cin >> amount;
 
     bool sourceFound = false;
