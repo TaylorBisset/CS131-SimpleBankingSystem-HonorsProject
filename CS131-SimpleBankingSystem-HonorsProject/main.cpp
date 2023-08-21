@@ -37,6 +37,10 @@ void login();
 void displayProfileMenu();
 void viewAccounts();
 //void editProfile();
+//void updatePassword();
+//void updateName();
+//void updateAge();
+//void updateAddress();
 void createProfile();
 
 bool validLogin;
@@ -336,7 +340,7 @@ void createProfile()
         profileFile << "Real Name: " << username << endl;
         profileFile << "Age: " << 30 << endl;
         profileFile << "Address: " << "123 Main Street" << endl;
-        cout << endl;
+        profileFile << "- - - - - - - - - - - - - - - - - - - -" << endl;
 
         addAccount(userAccounts);
         
