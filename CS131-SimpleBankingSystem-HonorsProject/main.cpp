@@ -33,6 +33,17 @@ public:
         accountValue += amount;
     }
 };
+Account* findAccountByNumber(vector<Account>& accounts, int accountNumber) 
+{
+    for (Account& account : accounts) 
+    {
+        if (account.getAccountNumber() == accountNumber) 
+        {
+            return &account;
+        }
+    }
+    return nullptr;
+}
 
 /* - - - - - Function prototypes - - - - - */
 
@@ -160,7 +171,7 @@ void login()
             string accountLine;
             while (getline(profileFile, accountLine))
             {
-                if (accountLine == "Accounts:")
+                if (accountLine == "Accounts: ")
                 {
                     break;
                 }
@@ -353,7 +364,7 @@ void transferFunds(vector<Account>& userAccounts)
     if (sourceFound && targetFound)
     {
         sourceAccount->updateAccountValue(-amount);
-        targetAccount->updateAccountValue(amount);
+        targetAccount->updateAccountValue(+amount);
         cout << "\nFunds transferred successfully!\n";
     }
 }
