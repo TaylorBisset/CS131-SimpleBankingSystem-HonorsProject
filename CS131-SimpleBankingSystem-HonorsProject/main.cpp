@@ -35,6 +35,7 @@ int main();
 void displayStartMenu();
 void login();
 void displayProfileMenu();
+void viewProfileDetails();
 void viewAccounts();
 void editProfile();
 void updatePassword();
@@ -222,7 +223,7 @@ void displayProfileMenu()
         {
             cout << "\nWelcome to your Bisset Bank Account.\n";
             cout << "\nWhat would you like to do?\n";
-            cout << "1 = View Accounts\n";
+            cout << "1 = View Profile Details\n";
             cout << "2 = Edit Profile\n";
             cout << "3 = Logout\n";
             cin >> profileMenu;
@@ -231,7 +232,7 @@ void displayProfileMenu()
             switch (profileMenu)
             {
             case 1:
-                viewAccounts();
+                viewProfileDetails();
                 break;
             case 2:
                 editProfile();
@@ -246,6 +247,29 @@ void displayProfileMenu()
             }
         }
     }
+}
+
+// View Profile Details
+void viewProfileDetails()
+{
+    string profileFilePath = "profiles\\" + username + ".txt";
+
+    ifstream profileFile(profileFilePath);
+    if (!profileFile.is_open())
+    {
+        cout << "Error opening profile file for user \"" << username << "\".\n";
+        return;
+    }
+
+    string line;
+    cout << "\nProfile Details:\n";
+
+    while (getline(profileFile, line))
+    {
+        cout << line << endl;
+    }
+
+    profileFile.close();
 }
 
 // View Accounts
@@ -323,7 +347,7 @@ void editProfile()
 // Update password
 void updatePassword()
 {
-    string newPassword = getValidPassword(); // Get a new valid password
+    string newPassword = getValidPassword();
     string profileFilePath = "profiles\\" + username + ".txt";
 
     ifstream profileFileIn(profileFilePath);
@@ -333,14 +357,14 @@ void updatePassword()
         return;
     }
 
-    vector<string> fileLines; // To store the lines of the file
+    vector<string> fileLines;
     string line;
 
     while (getline(profileFileIn, line))
     {
         if (line.find("Password: ") != string::npos)
         {
-            line = "Password: " + newPassword; // Update the password line
+            line = "Password: " + newPassword;
         }
         fileLines.push_back(line);
     }
