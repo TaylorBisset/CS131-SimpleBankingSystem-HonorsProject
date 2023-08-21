@@ -320,6 +320,18 @@ void addAccount(vector<Account>& userAccounts)
     }
 }*/
 
+// Update password
+void updatePassword()
+{
+    string newPassword = getValidPassword();
+    ofstream profileFile("profiles\\" + username + ".txt");
+    if (!profileFile.is_open())
+    {
+        cout << "Error updating profile.\n";
+        return;
+    }
+}
+
 // Create Profile function
 void createProfile()
 {
