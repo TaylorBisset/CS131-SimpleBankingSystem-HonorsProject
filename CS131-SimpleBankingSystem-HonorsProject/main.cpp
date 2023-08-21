@@ -302,7 +302,7 @@ void addAccount(vector<Account>& userAccounts)
     {
         ascii += static_cast<int>(c);
     }
-    srand(ascii + static_cast<int>(time(nullptr)));
+    srand((ascii + static_cast<unsigned>(time(nullptr)) + clock()) + (ascii + static_cast<unsigned>(time(nullptr)) - clock()) * 11111111);
 
     int newAccountNumber = (10000000 + (rand() % 90000000));
     double initialBalance = 500.00;
