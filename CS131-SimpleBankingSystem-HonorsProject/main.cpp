@@ -36,8 +36,8 @@ void displayStartMenu();
 void login();
 void displayProfileMenu();
 void viewAccounts();
-//void editProfile();
-//void updatePassword();
+void editProfile();
+void updatePassword();
 //void updateName();
 //void updateAge();
 //void updateAddress();
@@ -234,7 +234,7 @@ void displayProfileMenu()
                 viewAccounts();
                 break;
             case 2:
-                //editProfile();
+                editProfile();
                 break;
             case 3:
                 cout << "\nLogging out...\n";
@@ -277,7 +277,7 @@ void addAccount(vector<Account>& userAccounts)
 }
 
 // Edit Profile function
-/*void editProfile()
+void editProfile()
 {
     while (validLogin)
     {
@@ -300,13 +300,13 @@ void addAccount(vector<Account>& userAccounts)
                 updatePassword();
                 break;
             case 2:
-                updateName();
+                //updateName();
                 break;
             case 3:
-                updateAge();
+                //updateAge();
                 break;
             case 4:
-                updateAddress();
+                //updateAddress();
                 break;
             case 5:
                 cout << "\nReturning to Profil Menu\n";
@@ -318,18 +318,50 @@ void addAccount(vector<Account>& userAccounts)
             }
         }
     }
-}*/
+}
 
 // Update password
 void updatePassword()
 {
-    string newPassword = getValidPassword();
-    ofstream profileFile("profiles\\" + username + ".txt");
-    if (!profileFile.is_open())
+    string newPassword = getValidPassword(); // Get a new valid password
+    string profileFilePath = "profiles\\" + username + ".txt";
+
+    ifstream profileFileIn(profileFilePath);
+    if (!profileFileIn.is_open())
     {
-        cout << "Error updating profile.\n";
+        cout << "Error opening profile file for user \"" << username << "\".\n";
         return;
     }
+
+    vector<string> fileLines; // To store the lines of the file
+    string line;
+
+    while (getline(profileFileIn, line))
+    {
+        if (line.find("Password: ") != string::npos)
+        {
+            line = "Password: " + newPassword; // Update the password line
+        }
+        fileLines.push_back(line);
+    }
+
+    profileFileIn.close();
+
+    ofstream profileFileOut(profileFilePath);
+    if (!profileFileOut.is_open())
+    {
+        cout << "Error opening profile file for writing.\n";
+        return;
+    }
+
+    for (const string& updatedLine : fileLines)
+    {
+        profileFileOut << updatedLine << endl;
+    }
+
+    profileFileOut.close();
+
+    cout << "Password updated successfully!\n";
 }
 
 // Create Profile function
