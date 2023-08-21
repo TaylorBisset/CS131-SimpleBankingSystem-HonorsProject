@@ -41,7 +41,7 @@ void editProfile();
 void updatePassword();
 void updateName();
 void updateAge();
-//void updateAddress();
+void updateAddress();
 void createProfile();
 
 bool validLogin;
@@ -330,7 +330,7 @@ void editProfile()
                 updateAge();
                 break;
             case 4:
-                //updateAddress();
+                updateAddress();
                 break;
             case 5:
                 cout << "\nReturning to Profil Menu\n";
@@ -479,6 +479,52 @@ void updateAge()
     profileFileOut.close();
 
     cout << "Age updated successfully!\n";
+}
+
+// Update address
+void updateAddress()
+{
+    string profileFilePath = "profiles\\" + username + ".txt";
+
+    ifstream profileFileIn(profileFilePath);
+    if (!profileFileIn.is_open())
+    {
+        cout << "Error opening profile file for user \"" << username << "\".\n";
+        return;
+    }
+
+    vector<string> fileLines;
+    string line;
+
+    while (getline(profileFileIn, line))
+    {
+        if (line.find("Address: ") != string::npos)
+        {
+            string newAddress;
+            cout << "Enter your new address: ";
+            getline(cin, newAddress);
+            line = "Address: " + newAddress;
+        }
+        fileLines.push_back(line);
+    }
+
+    profileFileIn.close();
+
+    ofstream profileFileOut(profileFilePath);
+    if (!profileFileOut.is_open())
+    {
+        cout << "Error opening profile file for writing.\n";
+        return;
+    }
+
+    for (const string& updatedLine : fileLines)
+    {
+        profileFileOut << updatedLine << endl;
+    }
+
+    profileFileOut.close();
+
+    cout << "Address updated successfully!\n";
 }
 
 // Create Profile function
