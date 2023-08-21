@@ -140,6 +140,15 @@ void login()
         if (loginPassword == storedPassword)
         {
             validLogin = true;
+
+            // Read account info for userAccount
+            int accountNumber;
+            double accountValue;
+            while (profileFile >> accountNumber >> accountValue)
+            {
+                userAccounts.push_back(Account(accountNumber, accountValue));
+            }
+
             displayProfileMenu();
         }
         else
