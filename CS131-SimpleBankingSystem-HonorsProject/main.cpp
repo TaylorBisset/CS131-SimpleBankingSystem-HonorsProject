@@ -316,13 +316,17 @@ void transferFunds(vector<Account>& userAccounts)
 
     bool sourceFound = false;
     bool targetFound = false;
+
+    Account* sourceAccount = nullptr;
+    Account* targetAccount = nullptr;
+
     for (Account& account : userAccounts)
     {
         if (account.getAccountNumber() == sourceAccountNumber)
         {
             if (account.getAccountValue() >= amount)
             {
-                account.updateAccountValue(-amount);
+                sourceAccount = &account;
                 sourceFound = true;
             }
             else
@@ -333,7 +337,7 @@ void transferFunds(vector<Account>& userAccounts)
         }
         if (account.getAccountNumber() == targetAccountNumber)
         {
-            account.updateAccountValue(amount);
+            targetAccount = &account;
             targetFound = true;
         }
     }
@@ -341,15 +345,17 @@ void transferFunds(vector<Account>& userAccounts)
     if (!sourceFound)
     {
         cout << "\nSource account not found.\n";
-        return;
     }
     if (!targetFound)
     {
         cout << "\nTarget account not found.\n";
-        return;
     }
-
-    cout << "\nFunds transferred successfully!\n";
+    if (sourceFound && targetFound)
+    {
+        sourceAccount->updateAccountValue(-amount);
+        targetAccount->updateAccountValue(amount);
+        cout << "\nFunds transferred successfully!\n";
+    }
 }
 
 // Add new banking Account
