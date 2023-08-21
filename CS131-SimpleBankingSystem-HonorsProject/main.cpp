@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <vector>
 #include <cstdlib>
+#include <ctime>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -36,6 +37,7 @@ void displayStartMenu();
 void login();
 void displayProfileMenu();
 void viewProfileDetails();
+void addAccount(vector<Account>& userAccounts);
 //void viewAccounts();
 void editProfile();
 void updatePassword();
@@ -219,13 +221,15 @@ void displayProfileMenu()
     while (validLogin)
     {
         int profileMenu = 0;
-        while (profileMenu != 3)
+        while (profileMenu != 5)
         {
             cout << "\nWelcome to your Bisset Bank Account.\n";
             cout << "\nWhat would you like to do?\n";
             cout << "1 = View Profile Details\n";
             cout << "2 = Edit Profile\n";
-            cout << "3 = Logout\n";
+            cout << "3 = Transfer Funds\n";
+            cout << "4 = Add Account\n";
+            cout << "5 = Logout\n";
             cin >> profileMenu;
             cin.ignore();
 
@@ -238,6 +242,12 @@ void displayProfileMenu()
                 editProfile();
                 break;
             case 3:
+                //transferFunds();
+                break;
+            case 4:
+                addAccount(userAccounts);
+                break;
+            case 5:
                 cout << "\nLogging out...\n";
                 validLogin = false;
                 break;
@@ -283,7 +293,7 @@ void viewProfileDetails()
 //    }
 //}
 
-// add Account
+// Add new banking Account
 void addAccount(vector<Account>& userAccounts)
 {
     // Randomize account number whebn creating new account
@@ -292,12 +302,24 @@ void addAccount(vector<Account>& userAccounts)
     {
         ascii += static_cast<int>(c);
     }
-    srand(ascii);
+    srand(ascii + static_cast<int>(time(nullptr)));
+
     int newAccountNumber = (10000000 + (rand() % 90000000));
     double initialBalance = 500.00;
 
     userAccounts.push_back(Account(newAccountNumber, initialBalance));
     cout << "Account " << newAccountNumber << " added successfully!\n";
+
+    ofstream profileFile("profiles\\" + username + ".txt", ios::app);
+    if (!profileFile.is_open())
+    {
+        cout << "Error opening profile file for user \"" << username << "\".\n";
+        return;
+    }
+
+    profileFile << "Account Number: " << newAccountNumber << ", Account Value: " << initialBalance << endl;
+
+    profileFile.close();
 }
 
 // Edit Profile function

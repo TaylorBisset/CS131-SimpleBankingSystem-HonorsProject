@@ -5,3 +5,5 @@ Age: 33
 Address: 1234 56th St City, State 98765
 Accounts:
 Account Number: 10002860, Account Value: 500
+Account Number: 10007259, Account Value: 500
+Account Number: 10007269, Account Value: 500
