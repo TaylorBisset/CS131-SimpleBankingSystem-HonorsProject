@@ -272,16 +272,16 @@ void viewProfileDetails()
     profileFile.close();
 }
 
-// View Accounts
-void viewAccounts()
-{
-    cout << "\n\tYour Accounts:\n";
-    for (const Account& account : userAccounts)
-    {
-        cout << "\t\tAccount number: " << account.getAccountNumber() << endl;
-        cout << "\t\t\tAccount value: $" << account.getAccountValue() << endl;
-    }
-}
+//// View Accounts
+//void viewAccounts()
+//{
+//    cout << "\n\tYour Accounts:\n";
+//    for (const Account& account : userAccounts)
+//    {
+//        cout << "\t\tAccount number: " << account.getAccountNumber() << endl;
+//        cout << "\t\t\tAccount value: $" << account.getAccountValue() << endl;
+//    }
+//}
 
 // add Account
 void addAccount(vector<Account>& userAccounts)
