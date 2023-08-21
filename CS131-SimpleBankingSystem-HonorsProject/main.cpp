@@ -141,9 +141,17 @@ void login()
         {
             validLogin = true;
 
-            // Read account info for userAccount
+            // Read account info for userAccount account vector
             int accountNumber;
             double accountValue;
+            string accountLine;
+            while (getline(profileFile, accountLine))
+            {
+                if (accountLine == "Accounts:")
+                {
+                    break;
+                }
+            }
             while (profileFile >> accountNumber >> accountValue)
             {
                 userAccounts.push_back(Account(accountNumber, accountValue));
