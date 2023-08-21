@@ -35,7 +35,7 @@ int main();
 void displayStartMenu();
 void login();
 void displayProfileMenu();
-void viewAccounts(vector<Account>& userAccounts);
+void viewAccounts();
 //void editProfile();
 void createProfile();
 
@@ -219,7 +219,7 @@ void displayProfileMenu()
             switch (profileMenu)
             {
             case 1:
-                viewAccounts(userAccounts);
+                viewAccounts();
                 break;
             case 2:
                 //editProfile();
@@ -237,13 +237,13 @@ void displayProfileMenu()
 }
 
 // View Accounts
-void viewAccounts(vector<Account>& userAccounts)
+void viewAccounts()
 {
-    cout << "\nYour Accounts:\n";
+    cout << "\n\tYour Accounts:\n";
     for (const Account& account : userAccounts)
     {
-        cout << "Account number: " << account.getAccountNumber() << endl;
-        cout << "\tAccount value: $" << account.getAccountValue() << endl;
+        cout << "\t\tAccount number: " << account.getAccountNumber() << endl;
+        cout << "\t\t\tAccount value: $" << account.getAccountValue() << endl;
     }
 }
 
@@ -328,8 +328,15 @@ void createProfile()
         profileFile << "Real Name: " << username << endl;
         profileFile << "Age: " << 30 << endl;
         profileFile << "Address: " << "123 Main Street" << endl;
+        cout << endl;
 
         addAccount(userAccounts);
+        
+        profileFile << "Accounts:\n";
+        for (const Account& account : userAccounts)
+        {
+            profileFile << "Account Number: " << account.getAccountNumber() << ", Account Value: " << account.getAccountValue() << endl;
+        }
 
         profileFile.close();
         cout << "Congratulations!\nProfile created successfully!\n";

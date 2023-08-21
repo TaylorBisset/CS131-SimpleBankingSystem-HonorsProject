@@ -1,6 +1,0 @@
-Username: defaultUsername
-Password: qwer1234!@#$
-Real Name: defaultUsername
-Age: 30
-Address: 123 Main Street
-Account: 10005175 $500

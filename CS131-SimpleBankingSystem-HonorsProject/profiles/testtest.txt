@@ -1,6 +1,0 @@
-Username: testtest
-Password: test123!@#
-Real Name: testtest
-Age: 30
-Address: 123 Main Street
-Account: 10002964 $500
