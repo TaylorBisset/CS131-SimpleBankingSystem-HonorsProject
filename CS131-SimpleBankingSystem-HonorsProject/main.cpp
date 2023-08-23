@@ -6,6 +6,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -377,23 +378,28 @@ void transferFunds(vector<Account>& userAccounts)
             double accountValuePos = line.find("Account Value: ") + 15;
             double currentValue = stod(line.substr(accountValuePos));
             double newValue = currentValue - amount;
-            line.replace(accountValuePos, string::npos, to_string(newValue));
+            ostringstream newValueFormatted;
+            newValueFormatted << fixed << setprecision(2) << newValue;
+            line.replace(accountValuePos, string::npos, newValueFormatted.str());
         }
         if (line.find("Account Number: " + to_string(targetAccountNumber)) != string::npos)
         {
             double accountValuePos = line.find("Account Value: ") + 15;
             double currentValue = stod(line.substr(accountValuePos));
             double newValue = currentValue + amount;
-            line.replace(accountValuePos, string::npos, to_string(newValue));
+            ostringstream newValueFormatted;
+            newValueFormatted << fixed << setprecision(2) << newValue;
+            line.replace(accountValuePos, string::npos, newValueFormatted.str());
         }
         fileInfoToModify.push_back(line);
     }
     profileFileIn.close();
 
     ofstream profileFileOut("profiles\\" + username + ".txt");
-    for (const Account& account : userAccounts)
+    for (const string& modifiedLine : fileInfoToModify)
     {
-        profileFileOut << "Account Number: " << account.getAccountNumber() << ", Account Value: " << fixed << setprecision(2) << account.getAccountValue() << endl;
+        profileFileOut << fixed << setprecision(2);
+        profileFileOut << modifiedLine << endl;
     }
     profileFileOut.close();
 
@@ -683,7 +689,7 @@ void createProfile()
         profileFile << "Accounts:\n";
         for (const Account& account : userAccounts)
         {
-            profileFile << "Account Number: " << account.getAccountNumber() << ", Account Value: " << account.getAccountValue() << endl;
+            profileFile << "Account Number: " << account.getAccountNumber() << ", Account Value: " << fixed << setprecision(2) << account.getAccountValue() << endl;
         }
 
         profileFile.close();
