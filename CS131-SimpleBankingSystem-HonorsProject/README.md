@@ -37,3 +37,17 @@ and will be where banking account information will be stored.
 
 In the final iteration of this project (for CS131), I plan to use vectors, arrays, and pointers for data management.
 The user can create checking and savings accounts within their profile files. 
+
+## Project 3: Vectors, Structures, and Pointers
+
+In my final iteration of this project, I used vectors, pointers, and structures to help facilitate the banking portion. 
+This included creating a class Account, which I then had vectors to create and manage account numbers and balances.
+Manipulating the files gave me great difficulty, especially when overwriting the files' new balanaces. 
+I spent several hours debugging and rewriting code to make these accounts work as intended. 
+
+### Final Thoughts
+
+I am delighted with the final results of my project; 
+Recreating this project with my current knowledge would make it operate much more smoothly.
+
+This project provided me with great insight as the course progressed. I had much of fun, and experienced incredible frustration. 
