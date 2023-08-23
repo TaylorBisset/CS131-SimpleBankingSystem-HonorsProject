@@ -388,6 +388,13 @@ void transferFunds(vector<Account>& userAccounts)
     }
     profileFile.close();
 
+    ofstream outFile("profiles\\" + username + ".txt");
+    while (getline(profileFile, line))
+    {
+        outFile << line << endl;
+    }
+    outFile.close();
+
     cout << "\nFunds transferred successfully!\n";
 }
 
