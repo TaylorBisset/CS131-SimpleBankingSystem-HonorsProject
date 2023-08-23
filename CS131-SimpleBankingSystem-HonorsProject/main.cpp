@@ -391,9 +391,9 @@ void transferFunds(vector<Account>& userAccounts)
     profileFileIn.close();
 
     ofstream profileFileOut("profiles\\" + username + ".txt");
-    for (string& modifiedLine : fileInfoToModify)
+    for (const Account& account : userAccounts)
     {
-        profileFileOut << modifiedLine << endl;
+        profileFileOut << "Account Number: " << account.getAccountNumber() << ", Account Value: " << fixed << setprecision(2) << account.getAccountValue() << endl;
     }
     profileFileOut.close();
 
@@ -424,7 +424,7 @@ void addAccount(vector<Account>& userAccounts)
         return;
     }
 
-    profileFile << "Account Number: " << newAccountNumber << ", Account Value: " << initialBalance << endl;
+    profileFile << "Account Number: " << newAccountNumber << ", Account Value: " << fixed << setprecision(2) << initialBalance << endl;
 
     profileFile.close();
 }
