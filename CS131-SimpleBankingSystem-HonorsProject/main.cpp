@@ -386,6 +386,7 @@ void transferFunds(vector<Account>& userAccounts)
             line.replace(accountValuePos, string::npos, to_string(newValue));
         }
     }
+    profileFile.close();
 
     cout << "\nFunds transferred successfully!\n";
 }
