@@ -171,14 +171,24 @@ void login()
             string accountLine;
             while (getline(profileFile, accountLine))
             {
-                if (accountLine == "Accounts: ")
+                if (accountLine.empty())
                 {
                     break;
                 }
-            }
-            while (profileFile >> accountNumber >> accountValue)
-            {
-                userAccounts.push_back(Account(accountNumber, accountValue));
+
+                int accountNumberPos = accountLine.find("Account Number: ");
+                if (accountNumberPos != string::npos)
+                {
+                    int accountNumber = stoi(accountLine.substr(accountNumberPos + 16));
+
+                    int accountValuePos = accountLine.find("Account Value: ");
+                    if (accountValuePos != string::npos)
+                    {
+                        double accountValue = stod(accountLine.substr(accountValuePos + 15));
+
+                        userAccounts.push_back(Account(accountNumber, accountValue));
+                    }
+                }
             }
 
             displayProfileMenu();
