@@ -363,6 +363,16 @@ void transferFunds(vector<Account>& userAccounts)
     sourceAccount->updateAccountValue(-amount);
     targetAccount->updateAccountValue(amount);
 
+    ifstream profileFile("profiles\\" + username + ".txt");
+    string line;
+    while (getline(profileFile, line))
+    {
+        if (line.empty())
+        {
+            break;
+        }
+    }
+
     cout << "\nFunds transferred successfully!\n";
 }
 
