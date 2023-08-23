@@ -1,0 +1,9 @@
+Username: username
+Password: qwe123!@#
+Real Name: username
+Age: 30
+Address: 123 Main Street
+- - - - - - - - - - - - - - - - - - - -
+Accounts:
+Account Number: 10017470, Account Value: 250.000000
+Account Number: 10003806, Account Value: 750.000000
