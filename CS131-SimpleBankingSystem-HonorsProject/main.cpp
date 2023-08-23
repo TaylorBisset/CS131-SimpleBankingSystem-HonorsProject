@@ -378,6 +378,13 @@ void transferFunds(vector<Account>& userAccounts)
             double newValue = currentValue - amount;
             line.replace(accountValuePos, string::npos, to_string(newValue));
         }
+        if (line.find("Account Number: " + to_string(targetAccountNumber)) != string::npos)
+        {
+            double accountValuePos = line.find("Account Value: ") + 15;
+            double currentValue = stod(line.substr(accountValuePos));
+            double newValue = currentValue + amount;
+            line.replace(accountValuePos, string::npos, to_string(newValue));
+        }
     }
 
     cout << "\nFunds transferred successfully!\n";
