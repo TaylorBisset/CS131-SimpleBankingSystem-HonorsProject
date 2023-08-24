@@ -144,7 +144,8 @@ void login()
     cout << "Password: ";
     getline(cin, loginPassword);
 
-    ifstream profileFile("profiles\\" + loginUsername + ".txt");
+    fs::path profileFilePath = fs::path("profiles") / (loginUsername + ".txt");
+    ifstream profileFile(profileFilePath);
     if (!profileFile.is_open())
     {
         cout << "Error opening file for user \"" << loginUsername << "\".\n";
@@ -290,8 +291,7 @@ void displayProfileMenu()
 // View Profile Details
 void viewProfileDetails()
 {
-    string profileFilePath = "profiles\\" + username + ".txt";
-
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
     ifstream profileFile(profileFilePath);
     if (!profileFile.is_open())
     {
@@ -364,7 +364,8 @@ void transferFunds(vector<Account>& userAccounts)
     sourceAccount->updateAccountValue(-amount);
     targetAccount->updateAccountValue(amount);
 
-    ifstream profileFileIn("profiles\\" + username + ".txt");
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
+    ifstream profileFileIn(profileFilePath);
     vector<string> fileInfoToModify;
     string line;
     while (getline(profileFileIn, line))
@@ -395,7 +396,7 @@ void transferFunds(vector<Account>& userAccounts)
     }
     profileFileIn.close();
 
-    ofstream profileFileOut("profiles\\" + username + ".txt");
+    ofstream profileFileOut(profileFilePath);
     for (const string& modifiedLine : fileInfoToModify)
     {
         profileFileOut << fixed << setprecision(2);
@@ -423,7 +424,8 @@ void addAccount(vector<Account>& userAccounts)
     userAccounts.push_back(Account(newAccountNumber, initialBalance));
     cout << "Account " << newAccountNumber << " added successfully!\n";
 
-    ofstream profileFile("profiles\\" + username + ".txt", ios::app);
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
+    ofstream profileFile(profileFilePath, ios::app);
     if (!profileFile.is_open())
     {
         cout << "Error opening profile file for user \"" << username << "\".\n";
@@ -483,7 +485,7 @@ void editProfile()
 void updatePassword()
 {
     string newPassword = getValidPassword();
-    string profileFilePath = "profiles\\" + username + ".txt";
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
 
     ifstream profileFileIn(profileFilePath);
     if (!profileFileIn.is_open())
@@ -526,7 +528,7 @@ void updatePassword()
 // Update name
 void updateName()
 {
-    string profileFilePath = "profiles\\" + username + ".txt";
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
 
     ifstream profileFileIn(profileFilePath);
     if (!profileFileIn.is_open())
@@ -572,7 +574,7 @@ void updateName()
 // Update age
 void updateAge()
 {
-    string profileFilePath = "profiles\\" + username + ".txt";
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
 
     ifstream profileFileIn(profileFilePath);
     if (!profileFileIn.is_open())
@@ -619,7 +621,7 @@ void updateAge()
 // Update address
 void updateAddress()
 {
-    string profileFilePath = "profiles\\" + username + ".txt";
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
 
     ifstream profileFileIn(profileFilePath);
     if (!profileFileIn.is_open())
@@ -669,7 +671,8 @@ void createProfile()
     username = getValidUsername();
     password = getValidPassword();
 
-    ofstream profileFile("profiles\\" + username + ".txt");
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
+    ofstream profileFile(profileFilePath);
     if (!profileFile.is_open())
     {
         cout << "Error creating profile for user \"" << username << "\".\n";
@@ -706,7 +709,8 @@ void createProfile()
 // Checks for existing profiles
 bool usernameExists(string username)
 {
-    ifstream profileFile("profiles\\" + username + ".txt");
+    fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
+    ifstream profileFile(profileFilePath);
     return profileFile.good();
 }
 
@@ -828,13 +832,3 @@ string getValidPassword()
     cout << "\n- - - - - - - - - - - - - - - - - - - -\n";
     return password;
 }
-
-/*
-for file pathing to be OS independent, I should consider the following snippet
-
-`
-fs::path profileFilePath = fs::path("profiles") / (username + ".txt");
-std::ifstream profileFile(profileFilePath);
-`
-
-*/
