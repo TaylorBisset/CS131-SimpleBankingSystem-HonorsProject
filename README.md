@@ -2,7 +2,7 @@
 
 This project is part of my CS&131 Computer Programming 1 in C++ course to graduate with an AAS in Computer Science with Honors. 
 To complete the Honors Contract that I created with my professor at Everett Community College, Eihab El Radie; 
-I will create 3 projects. 
+I will create three projects. 
 I plan to iterate each project forward, expanding the application as the course progresses.
 
 ## Project 1: Login
@@ -37,3 +37,17 @@ and will be where banking account information will be stored.
 
 In the final iteration of this project (for CS131), I plan to use vectors, arrays, and pointers for data management.
 The user can create checking and savings accounts within their profile files. 
+
+## Project 3: Vectors, Structures, and Pointers
+
+In my final iteration of this project, I used vectors, pointers, and structures to help facilitate the banking portion. 
+This included creating a class Account, which I then had vectors to create and manage account numbers and balances.
+Manipulating the files gave me great difficulty, especially when overwriting the files' new balances. 
+I spent several hours debugging and rewriting code to make these accounts work as intended. 
+
+### Final Thoughts
+
+I am delighted with the final results of my project; 
+Recreating this project with my current knowledge would make it operate much more smoothly.
+
+This project provided me with great insight as the course progressed. I had much fun and experienced incredible frustration. 
